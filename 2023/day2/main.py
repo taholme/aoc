@@ -18,3 +18,14 @@ for i, line in enumerate(lines):
             print(i+1)
             t+= i+1
 print(t)
+
+t = 0
+
+for i, line in enumerate(lines):
+    gid = re.findall('Game (\\d+)', line)
+    r = max(map(int,re.findall('(\\d+) red', line)))
+    g = max(map(int,re.findall('(\\d+) green', line)))
+    b = max(map(int,re.findall('(?=(\\d+) blue)', line)))
+    t += r*g*b
+
+print(t)
