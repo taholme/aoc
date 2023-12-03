@@ -1,6 +1,6 @@
 # Add these to your ~/.bash_aliases
 
-export AOC="/mnt/c/Users/taholme/Desktop/aoc" # remember to change this to whatever your AOC directory is
+export AOC="/mnt/c/Users/..." # remember to change this to whatever your AOC directory is
 export AOC_COOKIE="..." # get this from the cookies tab in network tools on the AOC website
 
 alias aoinit="cd $AOC; touch main.py in.txt test.txt; echo \"inp = open(0).read().strip().splitlines()\" > main.py"
@@ -19,6 +19,6 @@ function aoc-load () {
     then
         curl --cookie "session=$AOC_COOKIE" https://adventofcode.com/$1/day/$2/input > in.txt
     else
-        curl --cookie "session=$AOC_COOKIE" `date +https://adventofcode.com/%Y/day/%d/input` > in.txt
+        curl --cookie "session=$AOC_COOKIE" "$(echo `date +https://adventofcode.com/%Y/day/%d/input` | sed 's/\/0/\//g')" > in.txt
     fi
 }
