@@ -1,11 +1,23 @@
+from collections import defaultdict
+import re
 lines = open(0).read().strip().splitlines()
 
-wires = dict()
-a = 0
+wires = defaultdict(int)
+conv = lambda x: int(x) if x.isdigit() else x
+
+operations = {
+    "OR": lambda a,b: a|b,
+    "AND": lambda a,b: a & b,
+    "LSHIFT": lambda a,b : a << b,
+    "RSHIFT": lambda a,b: a >> b,
+    "NOT": lambda *a: ~a[0],
+}
 
 for line in lines:
-    inst, var = line.split(' -> ')
-    inst = inst.replace('OR', '|').replace('AND', '&').replace('LSHIFT', '<<').replace('RSHIFT', '>>').replace('NOT', '~')
-    #print(f"{var}={inst}")
-    #exec eller eval(f"wires[{var}] = {inst}")
-print(a)
+    command = re.findall(fr"({'|'.join(operations.keys())})", line)
+    args = [*map(conv, re.findall("([a-z0-9]+)", line))]
+    destination = args.pop()
+    print(line, command, args, destination)
+    wires[destination] = (lambda arg: operations[command[0]](wires[arg[0]], wires[arg[-1]])) if len(command) else wires[args[0]]
+
+print(wires["d"])

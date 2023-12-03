@@ -3,8 +3,8 @@
 export AOC="/mnt/c/Users/..." # remember to change this to whatever your AOC directory is
 export AOC_COOKIE="..." # get this from the cookies tab in network tools on the AOC website
 
-alias aoinit="cd $AOC; touch main.py in.txt test.txt; echo \"lines = open(0).read().strip().splitlines()\" > main.py"
-alias jaoinit="cd $AOC; touch main.js in.txt test.txt; printf  \"const fs = require(\"fs\");\nconst data = fs.readFileSync(process.argv[2], \"utf-8\");\n\nconst inp = data.trim().split(\"\n\");\" > main.js"
+alias aoinit="cd $AOC; touch in.txt test.txt; cp ./Utils/main.py ./main.py"
+alias jaoinit="cd $AOC; touch in.txt test.txt; cp ./Utils/main.js ./main.js"
 
 alias aos="cd $AOC; python3 main.py < in.txt"
 alias aot="cd $AOC; echo -ne '\\e[0;34m'; python3 main.py < test.txt; echo -ne '\\e[0m'"
