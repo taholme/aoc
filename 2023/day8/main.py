@@ -1,13 +1,9 @@
-import re
+from re import findall
 instructions, maps = open(0).read().strip().split('\n\n')
 
 maps = maps.splitlines()
 
-d = {}
-for m in maps:
-    a, b, c = re.findall(r'(\w+) = \((\w+), (\w+)\)', m)[0]
-    # print(f"d[{a}] = ({b}, {c})")
-    d[a] = (b,c)
+d = {a: (b,c) for a,b,c, in (findall(r'\w+', m) for m in maps)}
 
 cnt = 0
 mover = 'AAA'
