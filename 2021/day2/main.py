@@ -4,10 +4,10 @@ for line in open(0).read().strip().splitlines():
     dr, ln = line.split()
     ln = int(ln)
 
-    if dr == 'forward':
+    if dr == "forward":
         x += ln
-    elif dr == 'down':
+    elif dr == "down":
         y += ln
     else:
         y -= ln
-print(x*y)
+print(x * y)

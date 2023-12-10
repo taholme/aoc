@@ -4,8 +4,8 @@ t = 0
 
 for line in lines:
     c = 0
-    line = line.split(': ')[1]
-    winning, card = line.split(' | ')
+    line = line.split(": ")[1]
+    winning, card = line.split(" | ")
     winning = list(map(int, winning.split()))
     card = list(map(int, card.split()))
 

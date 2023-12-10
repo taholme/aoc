@@ -1,9 +1,11 @@
 from collections import Counter
+
 letter_map = {"T": "A", "J": "B", "Q": "C", "K": "D", "A": "E"}
+
 
 def classify(hand):
     count = Counter(hand).values()
-    
+
     if 5 in count:
         return 6
     elif 4 in count:
@@ -18,8 +20,10 @@ def classify(hand):
         return 1
     return 0
 
+
 def strength(hand):
     return (classify(hand), [letter_map.get(char, char) for char in hand])
+
 
 plays = [(hand, int(bid)) for hand, bid in (line.split() for line in open(0))]
 

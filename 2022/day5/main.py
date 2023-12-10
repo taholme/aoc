@@ -1,8 +1,9 @@
 import re
-crates, instructions = open(0).read().split('\n\n')
-instructions = instructions.split('\n')
 
-s = [crate[1::4] for crate in crates.split('\n')]
+crates, instructions = open(0).read().split("\n\n")
+instructions = instructions.split("\n")
+
+s = [crate[1::4] for crate in crates.split("\n")]
 s.pop()
 s = [list("".join(c).strip()[::-1]) for c in zip(*s)]
 

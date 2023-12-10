@@ -2,7 +2,7 @@ x = 1
 val = [0]
 
 for inst in open(0).read().strip().splitlines():
-    if inst == 'noop':
+    if inst == "noop":
         val.append(x)
     else:
         new_x = int(inst.split()[1])
@@ -12,4 +12,4 @@ for inst in open(0).read().strip().splitlines():
 val.append(x)
 
 
-print(sum(a*b for a,b in list(enumerate(val))[20::40]))
+print(sum(a * b for a, b in list(enumerate(val))[20::40]))

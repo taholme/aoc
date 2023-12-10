@@ -11,11 +11,11 @@ output = ""
 while total:
     rem = total % 5
     total //= 5
-    
+
     if rem <= 2:
         output = str(rem) + output
     else:
-        output = "=-"[rem-3] + output
+        output = "=-"[rem - 3] + output
         total += 1
 
 print(output)

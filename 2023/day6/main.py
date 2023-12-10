@@ -1,5 +1,7 @@
 # times, distances = [list(map(int,line.split(":")[1].split())) for line in open(0)]
-times, distances = [list(map(int, ["".join(line.split(":")[1].split())])) for line in open(0)]
+times, distances = [
+    list(map(int, ["".join(line.split(":")[1].split())])) for line in open(0)
+]
 
 t = 1
 

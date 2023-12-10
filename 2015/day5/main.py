@@ -1,4 +1,5 @@
 import re
+
 lines = open(0).read().strip().splitlines()
 
 t = 0
@@ -27,5 +28,5 @@ for line in lines:
     if len(palindrome) < 1:
         continue
     t += 1
-    
+
 print(t)

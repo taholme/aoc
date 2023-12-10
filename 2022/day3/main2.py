@@ -8,7 +8,7 @@ while True:
     except:
         break
 
-    k, = set(x) & set(y) & set(z)
+    (k,) = set(x) & set(y) & set(z)
     t += ord(k) - (96 if ord(k) >= 97 else 38)
 
 print(t)

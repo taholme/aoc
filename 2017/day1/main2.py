@@ -6,7 +6,7 @@ fl = len(inp)
 hl = fl // 2
 
 for i, n in enumerate(inp):
-    if n == inp[(i+hl) % fl]:
+    if n == inp[(i + hl) % fl]:
         t += int(n)
 
 print(t)
