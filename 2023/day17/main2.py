@@ -25,7 +25,7 @@ while pq:
 
     if n>=4 or (dr,dc) == (0,0):
         for ndr, ndc in [(1,0), (0,1), (-1,0), (0,-1)]:
-            if (ndr, ndc) != (-dr, -dc) and (ndr, ndc) != (dr, dc):
+            if (ndr, ndc) not in [(-dr, -dc), (dr, dc)]:
                 nr = r + ndr
                 nc = c + ndc
                 if 0 <= nr < len(grid) and 0 <= nc < len(grid[0]):

@@ -28,7 +28,7 @@ print(t)
 
 t = 0
 
-for i, line in enumerate(lines):
+for line in lines:
     gid = re.findall("Game (\\d+)", line)
     r = max(map(int, re.findall("(\\d+) red", line)))
     g = max(map(int, re.findall("(\\d+) green", line)))

@@ -6,10 +6,7 @@ times, distances = [
 t = 1
 
 for time, distance in zip(times, distances):
-    margin = 0
-    for wait in range(time):
-        if wait * (time - wait) > distance:
-            margin += 1
+    margin = sum(wait * (time - wait) > distance for wait in range(time))
     if margin > 0:
         t *= margin
 

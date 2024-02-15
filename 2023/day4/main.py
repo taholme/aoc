@@ -11,9 +11,9 @@ for line in lines:
 
     for num in card:
         if num in winning:
-            if not c:
-                c = 1
-            else:
+            if c:
                 c *= 2
+            else:
+                c = 1
     t += c
 print(t)

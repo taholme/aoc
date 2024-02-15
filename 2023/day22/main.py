@@ -7,8 +7,8 @@ class Brick:
         self.ey = ey
         self.ez = ez
 
-        self.supports = list()
-        self.supportedBy = list()
+        self.supports = []
+        self.supportedBy = []
 
     def __repr__(self):
         return f"Start: {self.sx, self.sy, self.sz}, End: {self.ex, self.ey, self.ez}"
@@ -44,9 +44,10 @@ for i, brick in enumerate(bricks):
             check.supports.append(brick)
 
 
-total = 0
 
-for brick in bricks:
-    if all(len(b.supportedBy) >= 2 for b in brick.supports):
-        total += 1
-print(total)
+print(
+    sum(
+        all((len(b.supportedBy) >= 2 for b in brick.supports))
+        for brick in bricks
+    )
+)

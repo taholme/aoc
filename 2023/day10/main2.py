@@ -74,7 +74,7 @@ for r, row in enumerate(grid):
     within = False
     up = None
     for c, ch in enumerate(row):
-        if ch == "." or ch == "-":
+        if ch in [".", "-"]:
             pass
         elif ch == "|":
             within = not within
