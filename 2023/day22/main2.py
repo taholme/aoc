@@ -10,8 +10,8 @@ class Brick:
         self.ey = ey
         self.ez = ez
 
-        self.supports = list()
-        self.supportedBy = list()
+        self.supports = []
+        self.supportedBy = []
 
     def __repr__(self):
         return f"Start: {self.sx, self.sy, self.sz}, End: {self.ex, self.ey, self.ez}"

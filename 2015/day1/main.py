@@ -1,12 +1,6 @@
 pinput = open(0).read().strip()
 
-# Task 1
-c = 0
-
-for char in pinput:
-    c += 1 if char == "(" else -1
-
-print(c)
+print(sum(1 if char == "(" else -1 for char in pinput))
 
 # Task 2
 

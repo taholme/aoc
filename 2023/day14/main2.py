@@ -8,7 +8,7 @@ def cycle():
         grid = tuple(row[::-1] for row in grid)
 
 seen = set(grid)
-array = list([grid])
+array = [grid]
 
 i = 0
 
@@ -19,9 +19,9 @@ while True:
         break
     seen.add(grid)
     array.append(grid)
-    
+
 first = array.index(grid)
-    
+
 grid = array[(1000000000 - first) % (i - first) + first]
 
 print(sum(row.count("O") * (len(grid) - r) for r, row in enumerate(grid)))

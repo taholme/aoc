@@ -10,7 +10,7 @@ for line in lines:
 t2 = 0
 n = "one two three four five six seven eight nine".split()
 p = "(?=(" + "|".join(n) + "|\\d))"
-con = lambda x: str(n.index(x) + 1) if not x.isdigit() else x
+con = lambda x: x if x.isdigit() else str(n.index(x) + 1)
 
 for line in lines:
     nums = re.findall(p, line)

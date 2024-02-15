@@ -14,13 +14,12 @@ def count(springs, conditions):
     result = 0
     if springs[0] in ".?":
         result += count(springs[1:], conditions)
-    if springs[0] in "#?":
-        if (
-            conditions[0] <= len(springs)
-            and "." not in springs[: conditions[0]]
-            and (conditions[0] == len(springs) or springs[conditions[0]] != "#")
-        ):
-            result += count(springs[conditions[0] + 1 :], conditions[1:])
+    if springs[0] in "#?" and (
+                conditions[0] <= len(springs)
+                and "." not in springs[: conditions[0]]
+                and (conditions[0] == len(springs) or springs[conditions[0]] != "#")
+            ):
+        result += count(springs[conditions[0] + 1 :], conditions[1:])
 
     cache[key] = result
     return result

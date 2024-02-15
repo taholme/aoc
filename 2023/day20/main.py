@@ -2,18 +2,15 @@ from collections import deque
 
 
 class Module:
-    def __init__(self, name, type, targets):
+    def __init__(self, name, group, targets):
         self.name = name
-        self.type = type
+        self.group = group
         self.targets = targets
 
-        if type == "%":
-            self.memory = 0
-        else:
-            self.memory = {}
+        self.memory = 0 if group == "%" else {}
 
     def __repr__(self):
-        return f"{self.name}({self.type=},{self.targets=},{str(self.memory)=})"
+        return f"{self.name}({self.group=},{self.targets=},{str(self.memory)=})"
 
 
 modules = {}
@@ -25,13 +22,13 @@ for line in open(0):
     if left == "broadcaster":
         broadcast_targets = targets
     else:
-        type = left[0]
+        group = left[0]
         name = left[1:]
-        modules[name] = Module(name, type, targets)
+        modules[name] = Module(name, group, targets)
 
 for name, module in modules.items():
     for output in module.targets:
-        if output in modules and modules[output].type == "&":
+        if output in modules and modules[output].group == "&":
             modules[output].memory[name] = 0
 
 low_counter, high_counter = 0, 0
@@ -53,7 +50,7 @@ for _ in range(1000):
 
         module = modules[target]
 
-        if module.type == "%":
+        if module.group == "%":
             if pulse == 0:
                 module.memory = 1 if module.memory == 0 else 0
                 outgoing = 1 if module.memory == 1 else 0

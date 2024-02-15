@@ -8,7 +8,10 @@ xr, yr, zr, vxr, vyr, vzr = symbols("xr yr zr vxr vyr vzr")
 intersections = []
 
 for sx, sy, sz, vx, vy, vz in hailstones:
-    intersections.append((xr - sx) * (vy - vyr) - (yr - sy) * (vx - vxr))
-    intersections.append((xr - sx) * (vz - vzr) - (zr - sz) * (vx - vxr))
-
+    intersections.extend(
+        (
+            (xr - sx) * (vy - vyr) - (yr - sy) * (vx - vxr),
+            (xr - sx) * (vz - vzr) - (zr - sz) * (vx - vxr),
+        )
+    )
 print(sum(itemgetter(xr, yr, zr)(solve(intersections, dict=True)[0])))

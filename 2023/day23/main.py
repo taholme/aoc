@@ -25,10 +25,8 @@ for r, row in enumerate(grid):
     for c, ch in enumerate(row):
         if ch == "#":
             continue
-        neighbors = 0
-        for nr, nc in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]:
-            if is_valid(nr, nc):
-                neighbors += 1
+        neighbors = sum(bool(is_valid(nr, nc))
+                    for nr, nc in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)])
         if neighbors >= 3:
             points.append((r, c))
 
